@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react/cjs/react.development";
 
-function ToyForm() {
+function ToyForm({ newImage, newToy, handleFormSubmit, handleNameChange, handleImageChange }) {
+  
+
   return (
     <div className="container">
       <form className="add-toy-form">
@@ -10,6 +13,8 @@ function ToyForm() {
           name="name"
           placeholder="Enter a toy's name..."
           className="input-text"
+          value={newToy}
+          onChange={handleNameChange}
         />
         <br />
         <input
@@ -17,6 +22,8 @@ function ToyForm() {
           name="image"
           placeholder="Enter a toy's image URL..."
           className="input-text"
+          value={newImage}
+          onChange={handleImageChange}
         />
         <br />
         <input
@@ -24,6 +31,7 @@ function ToyForm() {
           name="submit"
           value="Create New Toy"
           className="submit"
+          onClick={handleFormSubmit}
         />
       </form>
     </div>
